@@ -10,6 +10,44 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css2.css">
+
+    <style>
+        .treeHTML {
+          line-height: normal;
+        }
+        .treeHTML details {
+          display: block;
+        }
+        .treeHTML div {
+          position: relative;
+          margin: 0 0 0 .5em;
+          padding: 0 0 0 1.2em;
+        }
+        .treeHTML div:not(:last-child) { /* необязательно */
+          border-left: 1px solid #ccc;
+        }
+        .treeHTML div:before { /* необязательно */
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1.1em;
+          height: .5em;
+          border-bottom: 1px solid #ccc;
+        }
+        .treeHTML div:last-child:before { /* необязательно */
+          border-left: 1px solid #ccc;
+        }
+        .treeHTML summary { /* стилями можно задать любую форму, например, тот же плюс. Я специально не стала усложнять, чтобы можно было проще разобраться в коде */
+          position: absolute;
+          top: 0;
+          left: 0;
+          cursor: pointer;
+        }
+        .treeHTML details[open] summary { /* убрать рамку при фокусе */
+          outline: none;
+        }
+        </style>
 </head>
 
 <body>
@@ -41,54 +79,29 @@
             <img src="main_logo.jpg" alt="" width="240" height="240">
         </h2>
         <ul>
-            <div class="treeHTML">Сайт
-                <div>Блог
+            <li><div class="treeHTML">Ведущие
+                <div>Катерина Казанина
                   <details><summary></summary>
-                    <div>HTML</div>
-                    <div>CSS</div>
-                    <div>JavaScript</div>
+                    <div>Свадебное торжество и церемония</div>
+                    <div>Экспресс-поздравление с вау-эффектом</div>
+                    <div>Детские меропритятия</div>
+                    <div>Подбор крутых подарков от партнеров с оригинальным предложением их вручения (доставка)</div>
+                    <div>Дедушка Мороз и Снегурочка</div>
+                    <div>Игры</div>
+                    <details><summary></summary>
+                    <div>Бизнесс-игры</div>
+                    <div>Развлекательные игры</div>
+                    <div>Неформальная мафия</div>
+                    </details>
+                    <div>Камерные и масштабные вечеринки</div> 
+                    <div>Благотворительные вечера</div>
+                    <div>Организация МК и конференций</div>
                   </details>
                 </div>
                 <div>Контакты</div>
               </div>
               
-              <style>
-              .treeHTML {
-                line-height: normal;
-              }
-              .treeHTML details {
-                display: block;
-              }
-              .treeHTML div {
-                position: relative;
-                margin: 0 0 0 .5em;
-                padding: 0 0 0 1.2em;
-              }
-              .treeHTML div:not(:last-child) { /* необязательно */
-                border-left: 1px solid #ccc;
-              }
-              .treeHTML div:before { /* необязательно */
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 1.1em;
-                height: .5em;
-                border-bottom: 1px solid #ccc;
-              }
-              .treeHTML div:last-child:before { /* необязательно */
-                border-left: 1px solid #ccc;
-              }
-              .treeHTML summary { /* стилями можно задать любую форму, например, тот же плюс. Я специально не стала усложнять, чтобы можно было проще разобраться в коде */
-                position: absolute;
-                top: 0;
-                left: 0;
-                cursor: pointer;
-              }
-              .treeHTML details[open] summary { /* убрать рамку при фокусе */
-                outline: none;
-              }
-              </style>
+              
             <!-- <li><a href="#1">Один</a>
             <li><a href="#2">Два</a>
             <li><a href="#3">Три</a>
