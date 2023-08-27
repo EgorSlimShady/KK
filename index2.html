@@ -1,136 +1,347 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-    font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-    width: 130px;
-    position: fixed;
-    z-index: 1;
-    top: 20px;
-    left: 10px;
-    background: #eee;
-    overflow-x: hidden;
-    padding: 8px 0;
-}
-
-.sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #2196F3;
-    display: block;
-}
-
-.sidenav a:hover {
-    color: #064579;
-}
-
-.main {
-    margin-left: 140px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
-
-
-
-.metro {
-  list-style: none;
-  padding: 0;
-  margin: 30px 0 0 50px;
-  border-left: 5px solid #DAE4F1;
-}
-.metro li {line-height: 2em;}
-.metro ul {
-  margin: 20px 0 20px 15px;
-  padding: 0;
-  border: none;
-  list-style: none;
-}
-.metro ul:before, .metro ul:after {
-  content: "";
-  width: 5px;
-  height: 28px;
-  background: #DAE4F1;
-  position: relative;
-  display: block;
-  left: -9px;
-}
-.metro ul:before {
-  transform: rotate(-45deg);
-  margin-top: -15px;
-}
-.metro ul:after {
-  transform: rotate(45deg);
-  bottom: -20px;
-}
-.metro ul li {border-left: 5px solid #DAE4F1;}
-.metro ul li:first-child {
-  margin-top: -5px;
-  padding-top: 5px;
-}
-.metro ul li:last-child {
-  padding-bottom: 9px;
-  margin-bottom: -25px;
-}
-.metro a {
-  text-decoration: none;
-  display: block;
-  font-family: 'Noto Sans', sans-serif;
-  color: #4A4B4D;
-}
-.metro a:before {
-  content: "";
-  display: inline-block;
-  background: #CA682D;
-  width: 12px;
-  height: 12px;
-  left: -9px;
-  position: relative;
-  border-radius: 50%;
-  margin-right: .5em;
-}
-</style>
-</head>
-<body>
-
-    <ul class="metro">
-        <li><a href="">Элемент списка</a>
-          <ul>
-            <li><a href="">Элемент вложенного списка</a></li>
-            <li><a href="">Элемент вложенного списка</a></li>
-            <li><a href="">Элемент вложенного списка</a></li>
-          </ul>
-        </li>
-        <li><a href="">Элемент списка</a></li>
-        <li><a href="">Элемент списка</a></li>
-    </ul>
-
-<div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<div class="main">
-  <h2>Auto Sidebar</h2>
-  <p>This sidebar is as tall as its content (the links), and is always shown.</p>
-  <p>Scroll down the page to see the result.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-</div>    
-
-</body>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="js2.js"></script>
+    </head>
+    <body>
+        <div class="layout has-sidebar fixed-sidebar fixed-header">
+            <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
+              <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
+              <div class="image-wrapper">
+                <img src="assets/images/sidebar-bg.jpg" alt="sidebar background" />
+              </div>
+              <div class="sidebar-layout">
+                <div class="sidebar-header">
+                  <div class="pro-sidebar-logo">
+                    <div>P</div>
+                    <h5>Pro Sidebar</h5>
+                  </div>
+                </div>
+                <div class="sidebar-content">
+                  <nav class="menu open-current-submenu">
+                    <ul>
+                      <li class="menu-header"><span> GENERAL </span></li>
+                      <li class="menu-item sub-menu">
+                        <a href="#">
+                          <span class="menu-icon">
+                            <i class="ri-vip-diamond-fill"></i>
+                          </span>
+                          <span class="menu-title">Components</span>
+                          <span class="menu-suffix">
+                            <span class="badge primary">Hot</span>
+                          </span>
+                        </a>
+                        <div class="sub-menu-list">
+                          <ul>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Grid</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Layout</span>
+                              </a>
+                            </li>
+                            <li class="menu-item sub-menu">
+                              <a href="#">
+                                <span class="menu-title">Forms</span>
+                              </a>
+                              <div class="sub-menu-list">
+                                <ul>
+                                  <li class="menu-item">
+                                    <a href="#">
+                                      <span class="menu-title">Input</span>
+                                    </a>
+                                  </li>
+                                  <li class="menu-item">
+                                    <a href="#">
+                                      <span class="menu-title">Select</span>
+                                    </a>
+                                  </li>
+                                  <li class="menu-item sub-menu">
+                                    <a href="#">
+                                      <span class="menu-title">More</span>
+                                    </a>
+                                    <div class="sub-menu-list">
+                                      <ul>
+                                        <li class="menu-item">
+                                          <a href="#">
+                                            <span class="menu-title">CheckBox</span>
+                                          </a>
+                                        </li>
+                                        <li class="menu-item">
+                                          <a href="#">
+                                            <span class="menu-title">Radio</span>
+                                          </a>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                          <a href="#">
+                                            <span class="menu-title">Want more ?</span>
+                                            <span class="menu-suffix">&#x1F914;</span>
+                                          </a>
+                                          <div class="sub-menu-list">
+                                            <ul>
+                                              <li class="menu-item">
+                                                <a href="#">
+                                                  <span class="menu-prefix">&#127881;</span>
+                                                  <span class="menu-title">You made it </span>
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="menu-item sub-menu">
+                        <a href="#">
+                          <span class="menu-icon">
+                            <i class="ri-bar-chart-2-fill"></i>
+                          </span>
+                          <span class="menu-title">Charts</span>
+                        </a>
+                        <div class="sub-menu-list">
+                          <ul>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Pie chart</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Line chart</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Bar chart</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="menu-item sub-menu">
+                        <a href="#">
+                          <span class="menu-icon">
+                            <i class="ri-shopping-cart-fill"></i>
+                          </span>
+                          <span class="menu-title">E-commerce</span>
+                        </a>
+                        <div class="sub-menu-list">
+                          <ul>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Products</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Orders</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">credit card</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="menu-item sub-menu">
+                        <a href="#">
+                          <span class="menu-icon">
+                            <i class="ri-global-fill"></i>
+                          </span>
+                          <span class="menu-title">Maps</span>
+                        </a>
+                        <div class="sub-menu-list">
+                          <ul>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Google maps</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Open street map</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="menu-item sub-menu">
+                        <a href="#">
+                          <span class="menu-icon">
+                           <i class="ri-paint-brush-fill"></i>
+                          </span>
+                          <span class="menu-title">Theme</span>
+                        </a>
+                        <div class="sub-menu-list">
+                          <ul>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Dark</span>
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                <span class="menu-title">Light</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li class="menu-header" style="padding-top: 20px"><span> EXTRA </span></li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-icon">
+                            <i class="ri-book-2-fill"></i>
+                          </span>
+                          <span class="menu-title">Documentation</span>
+                          <span class="menu-suffix">
+                            <span class="badge secondary">Beta</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-icon">
+                            <i class="ri-calendar-fill"></i>
+                          </span>
+                          <span class="menu-title">Calendar</span>
+                        </a>
+                      </li>
+                      <li class="menu-item">
+                        <a href="#">
+                          <span class="menu-icon">
+                            <i class="ri-service-fill"></i>
+                          </span>
+                          <span class="menu-title">Examples</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="sidebar-footer">
+                  <div class="footer-box">
+                    <div>
+                      <img
+                        class="react-logo"
+                        src="https://user-images.githubusercontent.com/25878302/213938106-ca8f0485-3f30-4861-9188-2920ed7ab284.png"
+                        alt="react"
+                      />
+                    </div>
+                    <div style="padding: 0 10px">
+                      <span style="display: block; margin-bottom: 10px"
+                        >Pro sidebar is also available as a react package
+                      </span>
+                      <div style="margin-bottom: 15px">
+                        <img
+                          alt="preview badge"
+                          src="https://img.shields.io/github/stars/azouaoui-med/react-pro-sidebar?style=social"
+                        />
+                      </div>
+                      <div>
+                        <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank"
+                          >Check it out!</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+            <div id="overlay" class="overlay"></div>
+            <div class="layout">
+              <main class="content">
+                <div>
+                  <a id="btn-toggle" href="#" class="sidebar-toggler break-point-sm">
+                    <i class="ri-menu-line ri-xl"></i>
+                  </a>
+                  <h1 style="margin-bottom: 0">Pro Sidebar</h1>
+                  <span style="display: inline-block">
+                    Responsive layout with advanced sidebar menu built with SCSS and vanilla Javascript
+                  </span>
+                  <br />
+                  <span>
+                    Full Code and documentation available on
+                    <a href="https://github.com/azouaoui-med/pro-sidebar-template" target="_blank"
+                      >Github</a
+                    >
+                  </span>
+                  <div style="margin-top: 10px">
+                    <a href="https://github.com/azouaoui-med/pro-sidebar-template" target="_blank">
+                      <img
+                        alt="GitHub stars"
+                        src="https://img.shields.io/github/stars/azouaoui-med/pro-sidebar-template?style=social"
+                      />
+                    </a>
+                    <a href="https://github.com/azouaoui-med/pro-sidebar-template" target="_blank">
+                      <img
+                        alt="GitHub forks"
+                        src="https://img.shields.io/github/forks/azouaoui-med/pro-sidebar-template?style=social"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <h2>Features</h2>
+                  <ul>
+                    <li>Fully responsive</li>
+                    <li>Collapsable sidebar</li>
+                    <li>Multi level menu</li>
+                    <li>RTL support</li>
+                    <li>Customizable</li>
+                  </ul>
+                </div>
+                <div>
+                  <h2>Resources</h2>
+                  <ul>
+                    <li>
+                      <a target="_blank" href="https://github.com/azouaoui-med/css-pro-layout">
+                        Css Pro Layout</a
+                      >
+                    </li>
+                    <li>
+                      <a target="_blank" href="https://github.com/popperjs/popper-core"> Popper Core</a>
+                    </li>
+                    <li>
+                      <a target="_blank" href="https://remixicon.com/"> Remix Icons</a>
+                    </li>
+                  </ul>
+                </div>
+                <footer class="footer">
+                  <small style="margin-bottom: 20px; display: inline-block">
+                    © 2023 made with
+                    <span style="color: red; font-size: 18px">&#10084;</span> by -
+                    <a target="_blank" href="https://azouaoui.netlify.com"> Mohamed Azouaoui </a>
+                  </small>
+                  <br />
+                  <div class="social-links">
+                    <a href="https://github.com/azouaoui-med" target="_blank">
+                      <i class="ri-github-fill ri-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/azouaoui_med" target="_blank">
+                      <i class="ri-twitter-fill ri-xl"></i>
+                    </a>
+                    <a href="https://codepen.io/azouaoui-med" target="_blank">
+                      <i class="ri-codepen-fill ri-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohamed-azouaoui/" target="_blank">
+                      <i class="ri-linkedin-box-fill ri-xl"></i>
+                    </a>
+                  </div>
+                </footer>
+              </main>
+              <div class="overlay"></div>
+            </div>
+          </div>
+    </body>
 </html>
