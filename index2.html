@@ -41,13 +41,61 @@
             <img src="main_logo.jpg" alt="" width="240" height="240">
         </h2>
         <ul>
-            <li><a href="#1">Один</a>
+            <div class="treeHTML">Сайт
+                <div>Блог
+                  <details><summary></summary>
+                    <div>HTML</div>
+                    <div>CSS</div>
+                    <div>JavaScript</div>
+                  </details>
+                </div>
+                <div>Контакты</div>
+              </div>
+              
+              <style>
+              .treeHTML {
+                line-height: normal;
+              }
+              .treeHTML details {
+                display: block;
+              }
+              .treeHTML div {
+                position: relative;
+                margin: 0 0 0 .5em;
+                padding: 0 0 0 1.2em;
+              }
+              .treeHTML div:not(:last-child) { /* необязательно */
+                border-left: 1px solid #ccc;
+              }
+              .treeHTML div:before { /* необязательно */
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1.1em;
+                height: .5em;
+                border-bottom: 1px solid #ccc;
+              }
+              .treeHTML div:last-child:before { /* необязательно */
+                border-left: 1px solid #ccc;
+              }
+              .treeHTML summary { /* стилями можно задать любую форму, например, тот же плюс. Я специально не стала усложнять, чтобы можно было проще разобраться в коде */
+                position: absolute;
+                top: 0;
+                left: 0;
+                cursor: pointer;
+              }
+              .treeHTML details[open] summary { /* убрать рамку при фокусе */
+                outline: none;
+              }
+              </style>
+            <!-- <li><a href="#1">Один</a>
             <li><a href="#2">Два</a>
             <li><a href="#3">Три</a>
             <li><a href="#4">Четыре</a>
             <li><a href="#5">Пять</a>
             <li><a href="#6">Шесть</a>
-            <li><a href="#7">Семь</a> 
+            <li><a href="#7">Семь</a>  -->
         </ul>
     </nav>
     <!-- 
