@@ -40,9 +40,80 @@ body {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
+
+
+.metro {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 0 50px;
+  border-left: 5px solid #DAE4F1;
+}
+.metro li {line-height: 2em;}
+.metro ul {
+  margin: 20px 0 20px 15px;
+  padding: 0;
+  border: none;
+  list-style: none;
+}
+.metro ul:before, .metro ul:after {
+  content: "";
+  width: 5px;
+  height: 28px;
+  background: #DAE4F1;
+  position: relative;
+  display: block;
+  left: -9px;
+}
+.metro ul:before {
+  transform: rotate(-45deg);
+  margin-top: -15px;
+}
+.metro ul:after {
+  transform: rotate(45deg);
+  bottom: -20px;
+}
+.metro ul li {border-left: 5px solid #DAE4F1;}
+.metro ul li:first-child {
+  margin-top: -5px;
+  padding-top: 5px;
+}
+.metro ul li:last-child {
+  padding-bottom: 9px;
+  margin-bottom: -25px;
+}
+.metro a {
+  text-decoration: none;
+  display: block;
+  font-family: 'Noto Sans', sans-serif;
+  color: #4A4B4D;
+}
+.metro a:before {
+  content: "";
+  display: inline-block;
+  background: #CA682D;
+  width: 12px;
+  height: 12px;
+  left: -9px;
+  position: relative;
+  border-radius: 50%;
+  margin-right: .5em;
+}
 </style>
 </head>
 <body>
+
+    <ul class="metro">
+        <li><a href="">Элемент списка</a>
+          <ul>
+            <li><a href="">Элемент вложенного списка</a></li>
+            <li><a href="">Элемент вложенного списка</a></li>
+            <li><a href="">Элемент вложенного списка</a></li>
+          </ul>
+        </li>
+        <li><a href="">Элемент списка</a></li>
+        <li><a href="">Элемент списка</a></li>
+    </ul>
 
 <div class="sidenav">
   <a href="#about">About</a>
@@ -62,4 +133,4 @@ body {
 </div>    
 
 </body>
-</html> 
+</html>
