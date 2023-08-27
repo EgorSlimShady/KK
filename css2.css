@@ -369,7 +369,7 @@ body {
 
 .nav > ul > li > a:hover:before {
     width: 0%;
-    background: #3bc1a0;
+    background: #FFD700;
     -webkit-transition: width .5s ease;
     transition: width .5s ease;
 }
