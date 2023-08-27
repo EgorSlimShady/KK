@@ -24,7 +24,7 @@
     -moz-transition: left 0.3s;
     transition: left 0.3s;
     /* определяем цвет фона панели */
-    background: #16a085;
+    background: #303030;
     /* поверх других элементов */
     z-index: 2000;
 }
@@ -379,31 +379,4 @@ body {
     background: transparent;
     -webkit-transition: width 0s ease;
     transition: width 0s ease;
-}
-
-
-/* фон затемнения на основной контент 
- * при этом элементы блокируютя
- * спорная такая фича, если оно вам надо
- * просто раскомментируйте
-*/
-
-.mask-content {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    visibility: hidden;
-    opacity: 0;
-}
-
-[id='nav-toggle']:checked ~ .mask-content {
-    visibility: visible;
-    opacity: 1;
-    -webkit-transition: opacity .5s, visibility .5s;
-    transition: opacity .5s, visibility .5s;
 }
