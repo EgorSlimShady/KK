@@ -11,43 +11,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css2.css">
 
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
     <style>
-        .treeHTML {
-          line-height: normal;
-        }
-        .treeHTML details {
-          display: block;
-        }
-        .treeHTML div {
-          position: relative;
-          margin: 0 0 0 .5em;
-          padding: 0 0 0 1.2em;
-        }
-        .treeHTML div:not(:last-child) { /* необязательно */
-          border-left: 1px solid #ccc;
-        }
-        .treeHTML div:before { /* необязательно */
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 1.1em;
-          height: .5em;
-          border-bottom: 1px solid #ccc;
-        }
-        .treeHTML div:last-child:before { /* необязательно */
-          border-left: 1px solid #ccc;
-        }
-        .treeHTML summary { /* стилями можно задать любую форму, например, тот же плюс. Я специально не стала усложнять, чтобы можно было проще разобраться в коде */
-          position: absolute;
-          top: 0;
-          left: 0;
-          cursor: pointer;
-        }
-        .treeHTML details[open] summary { /* убрать рамку при фокусе */
-          outline: none;
-        }
-        </style>
+    h3 { cursor:pointer;}  
+    </style>
 </head>
 
 <body>
@@ -78,8 +46,51 @@
         <h2 class="logo"> 
             <img src="main_logo.jpg" alt="" width="240" height="240">
         </h2>
-        <ul>
-            <li><div class="treeHTML">Ведущие
+        
+        <div class="box">
+          <h3><span>Ведущие</span></h3>
+          <ul>
+          <li>Катерина Казанина</li>
+            <ul>
+            <li>Свадебное торжество и церемония</li>
+              <li>Экспресс-поздравление с вау-эффектом</li>
+              <li>Детские меропритятия</li>
+              <li>Подбор крутых подарков от партнеров с оригинальным предложением их вручения (доставка)</li>
+              <li>Дедушка Мороз и Снегурочка</li>
+              <li>Игры</li>
+                <ul>
+                <li>Бизнесс-игры</div>
+                <li>Развлекательные игры</li>
+                <li>Неформальная мафия</li>
+                </ul>
+              <li>Камерные и масштабные вечеринки</li> 
+              <li>Благотворительные вечера</li>
+              <li>Организация МК и конференций</li>
+            </ul>
+          <div>Контакты</div>
+            </ul>
+          </ul>
+
+          <!-- <h3><span>Ведущие</span></h3>
+          <ul>
+              <li>Пункт №1</li>
+              <li>Пункт №2</li>
+              <li>Пункт №3</li>
+              <li>Пункт №4</li>
+          </ul>
+      </div>
+      <div class="box">
+          <h3><span>Список №2+</span></h3>
+          <ul>
+              <li>Пункт №5</li>
+              <li>Пункт №6</li>
+              <li>Пункт №7</li>
+              <li>Пункт №8</li>
+          </ul>
+      </div> -->
+
+        <!-- <ul> -->
+            <!-- <div class="treeHTML">Ведущие
                 <div>Катерина Казанина
                   <details><summary></summary>
                     <div>Свадебное торжество и церемония</div>
@@ -99,7 +110,7 @@
                   </details>
                 </div>
                 <div>Контакты</div>
-              </div>
+              </div> -->
               
               
             <!-- <li><a href="#1">Один</a>
@@ -109,7 +120,7 @@
             <li><a href="#5">Пять</a>
             <li><a href="#6">Шесть</a>
             <li><a href="#7">Семь</a>  -->
-        </ul>
+        <!-- </ul> -->
     </nav>
     <!-- 
     Далее размещаем любую разметку,
@@ -149,6 +160,16 @@
             </footer>
         </article>
     </main>
+
+    <script>
+      $(document).ready(function(){
+      $("ul").hide();
+      $("h3 span").click(function(){
+      $(this).parent().next().slideToggle();
+      });
+      }); 
+      </script>
+
 </body>
 
 </html>
