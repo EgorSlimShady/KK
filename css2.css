@@ -388,7 +388,6 @@ body {
  * просто раскомментируйте
 */
 
-/*
 .mask-content {
     display: block;
     position: fixed;
@@ -408,4 +407,3 @@ body {
     -webkit-transition: opacity .5s, visibility .5s;
     transition: opacity .5s, visibility .5s;
 }
-*/
