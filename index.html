@@ -1,43 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <script type="text/javascript" src="https://flashphoner.com/downloads/builds/flashphoner_client/wcs_api-2.0/current/flashphoner.js"></script>
-        <script type="text/javascript" src="video.js"></script>
-    </head>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KK</title>
+    <link rel="shortcut icon" href="icon/favicon.png" />
+    <link rel="stylesheet" href="css/css_menu.css">
+    <link rel="stylesheet" href="css/main_content.css">
+    
     <style>
-        .fp-Video {
-            border: 1px double black;
-            width: 322px;
-            height: 242px;
-        }
-        .display {
+        .accordion {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.2em;
+            background-color: transparent;
+            display: block;
+            color: goldenrod;
+            cursor: pointer;
+            padding: 18px 18px 18px 6px;
             width: 100%;
-            height: 100%;
-            display: inline-block;
+            border: none;
+            text-align: left;
+            text-decoration: none;
+            outline: none; /* Удаление контура при фокусировке */
+            transition: background-color 0.4s; /* Плавная анимация перехода свойств */
+            position: relative; /* Позиционирование аккордеона */
         }
-        .display > video,
-        object {
+        
+        /* Добавляем линию перед аккордеоном */
+        .accordion::before {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 2px;
             width: 100%;
-            height: 100%;
+            transition: width .5s ease;
         }
+
+        .accordion::after {
+            content: ''; /* Пустое содержимое */
+            display: block;
+            position: absolute; /* Абсолютное позиционирование */
+            left: 0; /* Левый край */
+            bottom: 0; /* Нижний край */
+            width: 100%; /* Ширина 0, чтобы линия была невидимой */
+            height: 2px; /* Высота линии */
+            background: goldenrod; /* Цвет линии */
+            -webkit-transition: color .5s ease, padding .5s ease;
+            -moz-transition: color .5s ease, padding .5s ease;
+            transition: width .5s ease; /* Плавная анимация изменения ширины линии */
+        }
+        
+        .accordion:hover {
+            color: white;
+            padding-left: 20px;
+            transition: color .5s ease, padding .5s ease;
+        }
+
+        /* Уменьшаем ширину линии перед аккордеоном при наведении */
+        .accordion:hover::before {
+            width: 0;
+            background: goldenrod;
+            transition: width .5s ease;
+        }
+
+        /* Уменьшаем ширину золотой полосы после аккордеона при наведении */
+        .accordion:hover::after {
+            width: 0;
+            background: transparent;
+            transition: width 0s ease;
+        }
+        
+        .panel {
+            padding: 0; /* Внутренние отступы */
+            display: none; /* Скрытие элемента */
+            background-color: transparent; /* цвет фона */
+            overflow: visible; /* Скрытие содержимого, выходящего за пределы контейнера */
+        }
+        
+        .accordion.active {
+            background-color: transparent; /* Прозрачный цвет фона */
+        }
+        
+        .panel p {
+            margin: 0; /* Удаление верхнего отступа */
+            color: goldenrod; /* цвет текста */
+            padding: 18px 18px; /* Внутренние отступы */
+            background-color: transparent; /* цвет фона */
+        }
+        
+        /* Стили для круглой картинки */
+        .accordion .thumbnail {
+            width: 25px; /* Задайте нужный размер */
+            height: 25px; /* Задайте нужный размер */
+            border-radius: 50%; /* Устанавливаем радиус скругления для создания круглой формы картинки */
+            object-fit: cover; /* Масштабируем картинку так, чтобы она полностью заполнила область */
+            margin-right: 10px; /* Отступ справа от картинки */
+        }
+
     </style>
-    <body onload="init_api()">
-        <div class="fp-Video">
-            <div id="publish" class="display"></div>
+
+</head>
+
+<body>
+    
+    <!-- Скрытый checkbox, отвечающий за переключение панели -->
+    <input type="checkbox" id="nav-toggle" hidden>
+    
+    <!-- Выдвижная панель -->
+    <nav class="nav">
+    
+    <!-- Метка с именем `id` чекбокса в `for` атрибуте
+    Символ Unicode 'TRIGRAM FOR HEAVEN' (U+2630) -->
+    <label for="nav-toggle" class="nav-toggle" onclick></label>
+    
+    <!-- Логотип (фото вверху меню) -->
+    <h2 class="logo" style="text-align: center !important"> 
+        <img src="icon/main_logo.jpg" alt="" width="240" height="240">
+    </h2>
+
+
+    <div id="accordion-wrapper">
+        <button class="accordion">Ведущие</button>
+        <div class="panel">
+            <button class="accordion"><img class="thumbnail" src="icon/main_logo.jpg" alt="КК"><a href="#1">Катерина Казанина</a></button>
+            <div class="panel">
+                <button class="accordion">Свадебное торжество и церемония</button>
+                <button class="accordion">Экспресс-поздравление с вау-эффектом</button>
+                <button class="accordion">Детские меропритятия</button>
+                <button class="accordion">Подбор крутых подарков от партнеров с оригинальным предложением их вручения (доставка)</button>
+                <button class="accordion">Дедушка Мороз и Снегурочка</button>
+                <button class="accordion">Игры</button>
+            <div class="panel">
+                <button class="accordion">Бизнесс-игры</button>
+                <button class="accordion">Развлекательные игры</button>
+                <button class="accordion">Неформальная мафия</button>
+            </div>
+                <button class="accordion">Камерные и масштабные вечеринки</button>
+                <button class="accordion">Благотворительные вечера</button>
+                <button class="accordion">Организация МК и конференций</button>
+            </div>
+            <button class="accordion"><img class="thumbnail" src="icon/mic2.png" alt="ВВ">Второй ведущий</button>
+            <div class="panel">
+                <button class="accordion">Какие-нибудь мероприятия</button>
+                <button class="accordion">Что-нибудь еще</button>
+            </div>
+            <button class="accordion"><img class="thumbnail" src="icon/mic2.png" alt="ТВ">Третий ведущий и т.д.</button>
+            <div class="panel">
+                <p>Тут по третьему ведущему</p>
+            </div>
         </div>
-        <br />
-        <button id="publishBtn">Publish</button><br />
-        <br />
-        <div class="fp-Video">
-            <div id="play" class="display"></div>
+        
+        <button class="accordion">Кондитеры</button>
+        <div class="panel">
+            <button class="accordion"><img class="thumbnail" src="icon/cooker.jpg" alt="ПК">Первый кондитер</button>
+            <div class="panel">
+                <button class="accordion">Торты</button>
+                <div class="panel">
+                    <button class="accordion">Одноярусные</button>
+                    <button class="accordion">Двухярусные</button>
+                    <button class="accordion">Пользовательские</button>
+                </div>
+                <button class="accordion">Мафины</button>
+                <button class="accordion">Выпечка</button>
+            </div>
+            <button class="accordion"><img class="thumbnail" src="icon/cooker.jpg" alt="ВК">Второй кондитер</button>
+            <div class="panel">
+                <button class="accordion">Пирожки</button>
+                <div class="panel">
+                    <button class="accordion">С капустой</button>
+                    <button class="accordion">С картошкой</button>
+                    <button class="accordion">С мясом</button>
+                </div>
+                <button class="accordion">Пироги</button>
+                <button class="accordion">Мафины</button>
+            </div>
         </div>
-        <br />
-        <br />
-        <button id="playBtn">Play</button><br />
-        <br />
-        <button id="stopBtn">Stop</button>
-        <br />
-        <br />
-        <a href="index2.html" class="btn">index2</a>
-    </body>
+    </div>
+
+    <!-- Скрипт для открытия только одной ветки аккордеонов -->
+    <script>
+        var accordions = document.getElementsByClassName("accordion");
+        for (var i = 0; i < accordions.length; i++) {
+            accordions[i].addEventListener("click", function() {
+                var panel = this.nextElementSibling;
+                var isActive = this.classList.contains("active");
+        
+                // Закрываем все активные панели, кроме родительской
+                var parentPanel = this.closest(".panel");
+                var panelsToClose = parentPanel ? parentPanel.getElementsByClassName("panel") : document.getElementsByClassName("panel");
+                for (var j = 0; j < panelsToClose.length; j++) {
+                    panelsToClose[j].style.display = "none";
+                }
+        
+                // Удаляем класс "active" у всех аккордеонов
+                for (var k = 0; k < accordions.length; k++) {
+                    accordions[k].classList.remove("active");
+                }
+        
+                // Открываем или закрываем выбранную панель и добавляем/удаляем класс "active" у аккордеона
+                if (!isActive) {
+                    panel.style.display = "block";
+                    this.classList.add("active");
+                } else {
+                    panel.style.display = "none";
+                }
+            });
+        }
+    </script>
+    </nav>
+   
+    
+    <main role="main">
+        <article>
+            <header>
+                <h1 class="header__title">Просто Демо:</h1>
+                <h2>Пока в разработке</h2> 
+            </header>
+            <section>
+               <p style="text-align: center;">
+                <a href="index4.html" class="btn btn-primary">Меню Слева</a>
+                <p>Здесь будет ваша информация когда вы мне ее дадите, а пока для примера</p>
+                <p>Самая неформальная ведущая города Барнаула!
+                    Мастер своего дела, отлично владеющая голосом, способна зарядить гостей драйвом, которого им хватит на следующие два дня!
+                    Создаю самые яркие, роскошные, мероприятия!
+                    
+                    Большой опыт проведения и организации мероприятий!
+                    Свадебное торжество!
+                    Выездная, авторская регистрация!
+                    Свой клуб мафии!
+                    Игра квизантип!
+                    Организация закрытых вечеринок!
+                    Проведение и организация тимбилдинга.
+                    Шоу "На грани юмора"
+                    Благотворительные концерты и вечера!
+                    Организация сольных концертов!
+                    Я знаю толк в подлинно красивом торжестве!
+                    В городе известна как КК!
+                </p>
+            </section>
+            <hr>
+            <footer>
+                <p>Created by <a href="https://api.whatsapp.com/send/?phone=79097891522&text&type=phone_number&app_absent=0">EgorSlimShady</a>
+            </footer>
+        </article>
+    </main>
+
+
+
+</body>
 </html>

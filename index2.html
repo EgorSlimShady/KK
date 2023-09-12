@@ -1,5 +1,5 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
@@ -7,15 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KK</title>
     <meta name="author" content="EgorSlimShady" />
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="favicon.png" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css2.css">
+    <!-- <script type="text/javascript" src="js2.js"></script> -->
 
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-    <style>
+    <!-- <style>
     h3 { cursor:pointer;}  
-    </style>
+    </style> -->
+
+<script type="text/javascript">
+    function tree(lit) 
+    {
+        var el;
+        var i = 1;
+        while (el = document.getElementById(lit + i))
+        {
+            if (el.style.display == 'block') el.style.display = 'none';
+            else el.style.display = 'block';
+            i++; 
+        } 
+    }   
+    </script>
+    <style type="text/css"> .h { display:none } </style>
+
 </head>
 
 <body>
@@ -46,31 +63,29 @@
         <h2 class="logo"> 
             <img src="main_logo.jpg" alt="" width="240" height="240">
         </h2>
-        
-        <!-- <div class="box"> -->
-        <div>
-          <h3><span>Ведущие</span></h3>
+
+          <!-- <h3><span>Ведущие</span></h3>
           <ul>
           <li>Катерина Казанина</li>
             <ul>
-            <li>Свадебное торжество и церемония</li>
-            <li>Экспресс-поздравление с вау-эффектом</li>
-            <li>Детские меропритятия</li>
-            <li>Подбор крутых подарков от партнеров с оригинальным предложением их вручения (доставка)</li>
-            <li>Дедушка Мороз и Снегурочка</li>
+            <li><a href="#1">Свадебное торжество и церемония</a>
+            <li><a href="#2"></a>Экспресс-поздравление с вау-эффектом</a></li>
+            <li><a href="#3"></a>Детские меропритятия</a></li>
+            <li><a href="#4"></a>Подбор крутых подарков от партнеров с оригинальным предложением их вручения (доставка)</a></li>
+            <li><a href="#5"></a>Дедушка Мороз и Снегурочка</a></li>
             <li>Игры</li>
               <ul>
-              <li>Бизнесс-игры</li>
-              <li>Развлекательные игры</li>
-              <li>Неформальная мафия</li>
+              <li><a href="#6"></a>Бизнесс-игры</a></li>
+              <li><a href="#7"></a>Развлекательные игры</a></li>
+              <li><a href="#8"></a>Неформальная мафия</a></li>
               </ul>
-              <li>Камерные и масштабные вечеринки</li> 
-              <li>Благотворительные вечера</li>
-              <li>Организация МК и конференций</li>
+              <li><a href="#9"></a>Камерные и масштабные вечеринки</a></li>
+              <li><a href="#10"></a>Благотворительные вечера</a></li>
+              <li><a href="#11"></a>Организация МК и конференций</a></li>
             </ul>
-          <li>Контакты</li>
-            </ul>
-        </div>
+          <li><a href="#12">Контакты</a></li>
+          </ul> -->
+        <!-- </div> -->
 
           <!-- <h3><span>Ведущие</span></h3>
           <ul>
@@ -89,39 +104,42 @@
               <li>Пункт №8</li>
           </ul>
       </div> -->
-
-        <!-- <ul> -->
-            <!-- <div class="treeHTML">Ведущие
-                <div>Катерина Казанина
-                  <details><summary></summary>
-                    <div>Свадебное торжество и церемония</div>
-                    <div>Экспресс-поздравление с вау-эффектом</div>
-                    <div>Детские меропритятия</div>
-                    <div>Подбор крутых подарков от партнеров с оригинальным предложением их вручения (доставка)</div>
-                    <div>Дедушка Мороз и Снегурочка</div>
-                    <div>Игры</div>
-                    <details><summary></summary>
-                    <div>Бизнесс-игры</div>
-                    <div>Развлекательные игры</div>
-                    <div>Неформальная мафия</div>
-                    </details>
-                    <div>Камерные и масштабные вечеринки</div> 
-                    <div>Благотворительные вечера</div>
-                    <div>Организация МК и конференций</div>
-                  </details>
-                </div>
-                <div>Контакты</div>
-              </div> -->
-              
-              
-            <!-- <li><a href="#1">Один</a>
-            <li><a href="#2">Два</a>
-            <li><a href="#3">Три</a>
+      <ul class="list">
+        <li><a href="javascript:void(0);" onclick="tree('q')">Ведущие</a></li>
+            <ul>
+                <li id="q1" class="h">Раз</li>
+                <li id="q2" class="h">Два</li>
+            </ul>
+        <li><a href="javascript:void(0);" onclick="tree('s')">Путь</a>
+            <ul>
+                <li id="s1" class="h"><a href="javascript:void(0);" onclick="tree('a')">Ноутбуки</a>
+                <ul>
+                    <li id="a1" class="h">Первый</li>
+                    <li id="a2" class="h">Второй</li>
+                    <li id="a3" class="h">Third</li>
+                </ul>
+                </li>
+                <li id="s2" class="h"><a href="javascript:void(0);" onclick="tree('x')">Компьютеры</a>
+                <ul>
+                    <li id="x1" class="h">Вперед</li>
+                    <li id="x2" class="h">Назад</li>
+                </ul>
+                </li>
+                <li id="s3" class="h">Что-то еще</li>
+            </ul>
+        </li>
+    </ul>
+<!--     
+        <ul>
+            <li><div>Ведущие</div></li>
+            <li><a href="#1"><img src="main_logo.jpg" width="45" height="45"> Катерина Казанина</a>
+            <li><a href="#2"><img src="main_logo.jpg" width="45" height="45"> Кто-то еще</a>
+            <li><a href="#3"><img src="favicon.png" width="45" height="45"> Три</a>
             <li><a href="#4">Четыре</a>
             <li><a href="#5">Пять</a>
             <li><a href="#6">Шесть</a>
-            <li><a href="#7">Семь</a>  -->
-        <!-- </ul> -->
+            <li><a href="#7">Семь</a>
+        </ul></ul> -->
     </nav>
     <!-- 
     Далее размещаем любую разметку,
@@ -135,7 +153,7 @@
             </header>
             <section>
                <p style="text-align: center;">
-                <a href="index.html" class="btn btn-primary">Меню Слева</a>
+                <a href="index4.html" class="btn btn-primary">Меню Слева</a>
                 <p>Здесь будет ваша информация когда вы мне ее дадите, а пока для примера</p>
                 <p>Самая неформальная ведущая города Барнаула!
                     Мастер своего дела, отлично владеющая голосом, способна зарядить гостей драйвом, которого им хватит на следующие два дня!
@@ -162,14 +180,22 @@
         </article>
     </main>
 
-    <script>
-      $(document).ready(function(){
-      $("ul").hide();
-      $("h3 span").click(function(){
-      $(this).parent().next().slideToggle();
-      });
-      }); 
-      </script>
+
+    <script type="text/javascript"> 
+ 
+        function shiftSubDiv(n)
+        // Скрывает/раскрывает подразделы меню с ID вида subDiv1, subDiv2 и т.д.
+        // Номер подраздела передается в качестве аргумента.
+        {
+          var el = document.getElementById('subDiv'+n);
+         
+          if ( el.style.display == 'none' )
+            el.style.display = 'block'
+          else
+            if ( el.style.display == 'block' )
+            el.style.display = 'none';
+        };
+        </script>
 
 </body>
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KK</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@videojs/http-streaming@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flv.js@latest"></script>
+</head>
+
+<video id="videoPlayer" width="640" height="480" controls=""></video>
+
+
+<script>
+// URL вашей IP-камеры
+var cameraUrl = "АДРЕС_VIDEO_STREAM";
+// Инициализация видеоплеера с использованием HLS
+    if (Hls.isSupported())
+    {
+        var video = document.getElementById('videoPlayer');
+        var hls = new Hls();
+        hls.loadSource(cameraUrl);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function()
+        {
+            video.play();
+        });
+    }
+    else
+        if (videojs.getTech('Flvjs'))
+        {
+            var player = videojs('videoPlayer',
+            {
+                techOrder: ['html5', 'flvjs']
+            });
+            player.src(
+                {
+                src: cameraUrl,
+                type: 'video/flv'
+                });
+            player.play();
+        }
+        else
+        {
+            console.error("Трансляцию не удалось запустить на этом браузере");
+        }
+</script>
