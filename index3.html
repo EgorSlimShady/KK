@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Мероприятие</title>
+  <style>
+    body {
+      background-color: black;
+      color: gold;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .carousel-container {
+      margin-bottom: 40px;
+    }
+
+    .timer-container {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .countdown-text {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Когда планируется провести Ваше мероприятие?</h1>
+    <button onclick="startOrganization()">Приступить к организации</button>
+
+    <div class="carousel-container">
+      <!-- Фото-карусель с ближайшими мероприятиями -->
+    </div>
+
+    <div class="timer-container">
+      <h2>До Вашего мероприятия осталось:</h2>
+      <div class="countdown">
+        <div id="weeks" class="countdown-text"></div>
+        <div id="days" class="countdown-text"></div>
+        <div id="hours" class="countdown-text"></div>
+        <div id="minutes" class="countdown-text"></div>
+        <div id="seconds" class="countdown-text"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- Контент страницы -->
+    </div>
+  </div>
+
+  <script>
+    function startOrganization() {
+      // Действия при нажатии кнопки "Приступить к организации"
+    }
+
+    // Код для отображения и обновления таймера обратного отсчета
+  </script>
+</body>
+</html>
