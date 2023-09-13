@@ -17,7 +17,7 @@
 
         getCodeButton.addEventListener('click', () => {
             // Выполнять запрос к серверу для получения уникального кода
-            fetch('http://localhost:3000/getCode')
+            fetch('https://egorslimshady.github.io/KK/getCode')
                 .then(response => response.text())
                 .then(code => {
                     codeInput.value = code;
