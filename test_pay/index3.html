@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Stream</title>
+</head>
+<body>
+    <button id="getCodeButton">Выдать код</button>
+    <input id="codeInput" type="text" placeholder="Введите код">
+    <button id="checkCodeButton">Проверить код</button>
+    <video id="videoPlayer" controls autoplay></video>
+
+    <script>
+        const getCodeButton = document.getElementById('getCodeButton');
+        const codeInput = document.getElementById('codeInput');
+        const checkCodeButton = document.getElementById('checkCodeButton');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        getCodeButton.addEventListener('click', () => {
+            // Выполнять запрос к серверу для получения уникального кода
+            fetch('http://localhost:3000/getCode')
+                .then(response => response.text())
+                .then(code => {
+                    codeInput.value = code;
+                })
+                .catch(error => {
+                    console.log('Произошла ошибка:', error);
+                });
+        });
+
+        checkCodeButton.addEventListener('click', () => {
+            const code = codeInput.value;
+            // Выполнять запрос к серверу для проверки кода
+            fetch(`http://localhost:3000/checkCode/${code}`)
+                .then(response => response.text())
+                .then(result => {
+                    if (result === 'Код действителен') {
+                        videoPlayer.src = 'http://localhost:3000/videoStream'; // Воспроизвести видео-поток на клиенте
+                    } else {
+                        alert('Неверный код');
+                    }
+                })
+                .catch(error => {
+                    console.log('Произошла ошибка:', error);
+                });
+        });
+    </script>
+</body>
+</html>
