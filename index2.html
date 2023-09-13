@@ -7,31 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KK</title>
     <meta name="author" content="EgorSlimShady" />
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css2.css">
-    <!-- <script type="text/javascript" src="js2.js"></script> -->
-
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-    <!-- <style>
-    h3 { cursor:pointer;}  
-    </style> -->
-
-<script type="text/javascript">
-    function tree(lit) 
-    {
-        var el;
-        var i = 1;
-        while (el = document.getElementById(lit + i))
-        {
-            if (el.style.display == 'block') el.style.display = 'none';
-            else el.style.display = 'block';
-            i++; 
-        } 
-    }   
-    </script>
-    <style type="text/css"> .h { display:none } </style>
+    <link rel="shortcut icon" href="icon/favicon.png" />
+    <link rel="stylesheet" href="css/main_content.css">
+    <link rel="stylesheet" href="css/css_menu.css">
 
 </head>
 
@@ -53,7 +31,6 @@
     Метка с именем `id` чекбокса в `for` атрибуте
     Символ Unicode 'TRIGRAM FOR HEAVEN' (U+2630)
     Пустой атрибут `onclick` используем для исправления бага в iOS < 6.0
-    См: http://timpietrusky.com/advanced-checkbox-hack 
     -->
         <label for="nav-toggle" class="nav-toggle" onclick></label>
         <!-- 
@@ -61,85 +38,34 @@
     если это меню, то скорее всего неупорядоченный список <ul>
     -->
         <h2 class="logo"> 
-            <img src="main_logo.jpg" alt="" width="240" height="240">
+            <img src="icon/main_logo.jpg" alt="" width="240" height="240">
         </h2>
 
-          <!-- <h3><span>Ведущие</span></h3>
-          <ul>
-          <li>Катерина Казанина</li>
-            <ul>
-            <li><a href="#1">Свадебное торжество и церемония</a>
-            <li><a href="#2"></a>Экспресс-поздравление с вау-эффектом</a></li>
-            <li><a href="#3"></a>Детские меропритятия</a></li>
-            <li><a href="#4"></a>Подбор крутых подарков от партнеров с оригинальным предложением их вручения (доставка)</a></li>
-            <li><a href="#5"></a>Дедушка Мороз и Снегурочка</a></li>
-            <li>Игры</li>
-              <ul>
-              <li><a href="#6"></a>Бизнесс-игры</a></li>
-              <li><a href="#7"></a>Развлекательные игры</a></li>
-              <li><a href="#8"></a>Неформальная мафия</a></li>
-              </ul>
-              <li><a href="#9"></a>Камерные и масштабные вечеринки</a></li>
-              <li><a href="#10"></a>Благотворительные вечера</a></li>
-              <li><a href="#11"></a>Организация МК и конференций</a></li>
-            </ul>
-          <li><a href="#12">Контакты</a></li>
-          </ul> -->
-        <!-- </div> -->
-
-          <!-- <h3><span>Ведущие</span></h3>
-          <ul>
-              <li>Пункт №1</li>
-              <li>Пункт №2</li>
-              <li>Пункт №3</li>
-              <li>Пункт №4</li>
-          </ul>
-      </div>
-      <div class="box">
-          <h3><span>Список №2+</span></h3>
-          <ul>
-              <li>Пункт №5</li>
-              <li>Пункт №6</li>
-              <li>Пункт №7</li>
-              <li>Пункт №8</li>
-          </ul>
-      </div> -->
-      <ul class="list">
-        <li><a href="javascript:void(0);" onclick="tree('q')">Ведущие</a></li>
-            <ul>
-                <li id="q1" class="h">Раз</li>
-                <li id="q2" class="h">Два</li>
-            </ul>
-        <li><a href="javascript:void(0);" onclick="tree('s')">Путь</a>
-            <ul>
-                <li id="s1" class="h"><a href="javascript:void(0);" onclick="tree('a')">Ноутбуки</a>
+        <ul class="list">
+            <li><a href="javascript:void(0);" onclick="tree('q')">Ведущие</a></li>
                 <ul>
-                    <li id="a1" class="h">Первый</li>
-                    <li id="a2" class="h">Второй</li>
-                    <li id="a3" class="h">Third</li>
+                    <li id="q1" class="h">Раз</li>
+                    <li id="q2" class="h">Два</li>
                 </ul>
-                </li>
-                <li id="s2" class="h"><a href="javascript:void(0);" onclick="tree('x')">Компьютеры</a>
+            <li><a href="javascript:void(0);" onclick="tree('s')">Путь</a>
                 <ul>
-                    <li id="x1" class="h">Вперед</li>
-                    <li id="x2" class="h">Назад</li>
+                    <li id="s1" class="h"><a href="javascript:void(0);" onclick="tree('a')">Ноутбуки</a>
+                    <ul>
+                        <li id="a1" class="h">Первый</li>
+                        <li id="a2" class="h">Второй</li>
+                        <li id="a3" class="h">Third</li>
+                    </ul>
+                    </li>
+                    <li id="s2" class="h"><a href="javascript:void(0);" onclick="tree('x')">Компьютеры</a>
+                    <ul>
+                        <li id="x1" class="h">Вперед</li>
+                        <li id="x2" class="h">Назад</li>
+                    </ul>
+                    </li>
+                    <li id="s3" class="h">Что-то еще</li>
                 </ul>
-                </li>
-                <li id="s3" class="h">Что-то еще</li>
-            </ul>
-        </li>
-    </ul>
-<!--     
-        <ul>
-            <li><div>Ведущие</div></li>
-            <li><a href="#1"><img src="main_logo.jpg" width="45" height="45"> Катерина Казанина</a>
-            <li><a href="#2"><img src="main_logo.jpg" width="45" height="45"> Кто-то еще</a>
-            <li><a href="#3"><img src="favicon.png" width="45" height="45"> Три</a>
-            <li><a href="#4">Четыре</a>
-            <li><a href="#5">Пять</a>
-            <li><a href="#6">Шесть</a>
-            <li><a href="#7">Семь</a>
-        </ul></ul> -->
+            </li>
+        </ul>
     </nav>
     <!-- 
     Далее размещаем любую разметку,
@@ -180,23 +106,5 @@
         </article>
     </main>
 
-
-    <script type="text/javascript"> 
- 
-        function shiftSubDiv(n)
-        // Скрывает/раскрывает подразделы меню с ID вида subDiv1, subDiv2 и т.д.
-        // Номер подраздела передается в качестве аргумента.
-        {
-          var el = document.getElementById('subDiv'+n);
-         
-          if ( el.style.display == 'none' )
-            el.style.display = 'block'
-          else
-            if ( el.style.display == 'block' )
-            el.style.display = 'none';
-        };
-        </script>
-
 </body>
-
 </html>

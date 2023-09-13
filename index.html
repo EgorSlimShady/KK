@@ -23,9 +23,9 @@
             border: none;
             text-align: left;
             text-decoration: none;
-            outline: none; /* Удаление контура при фокусировке */
-            transition: background-color 0.4s; /* Плавная анимация перехода свойств */
-            position: relative; /* Позиционирование аккордеона */
+            transition: background-color 0.4s;
+            position: relative;
+            transition: color .5s ease, padding .5s ease;
         }
         
         /* Добавляем линию перед аккордеоном */
@@ -99,6 +99,32 @@
             border-radius: 50%; /* Устанавливаем радиус скругления для создания круглой формы картинки */
             object-fit: cover; /* Масштабируем картинку так, чтобы она полностью заполнила область */
             margin-right: 10px; /* Отступ справа от картинки */
+        }
+
+        a {
+        color: goldenrod; /* Золотой цвет текста */
+        text-decoration: none; /* Удаление подчеркивания */
+        }
+
+        a:hover {
+        color: white; /* Белый цвет текста при наведении */
+        }
+
+
+
+        /* Стиль для первого уровня аккордеона */
+        .accordion-level-1 {
+        margin-left: 10px;
+        }
+
+        /* Стиль для второго уровня аккордеона */
+        .accordion-level-2 {
+        margin-left: 20px;
+        }
+
+        /* Стиль для третьего уровня аккордеона */
+        .accordion-level-3 {
+        margin-left: 30px;
         }
 
     </style>
