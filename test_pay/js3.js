@@ -3,13 +3,13 @@ const app = express();
 
 let validCode = '';
 
-app.get('/videoStream', (req, res) => {
+app.get('https://egorslimshady.github.io/KK/test_pay/js3.js/videoStream', (req, res) => {
     const videoUrl = 'https://live.katun24.ru:8082/18ed1c64-2ec7-4c8c-bf52-14bea4ead6d0';
 
     request(videoUrl).pipe(res);
 });
 
-app.get('/getCode', (req, res) => {
+app.get('https://egorslimshady.github.io/KK/test_pay/js3.js/getCode', (req, res) => {
     const currentDate = new Date();
     const expirationDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
 
@@ -21,7 +21,7 @@ app.get('/getCode', (req, res) => {
     }
 });
 
-app.get('/checkCode/:code', (req, res) => {
+app.get('https://egorslimshady.github.io/KK/test_pay/js3.js/checkCode/:code', (req, res) => {
     const code = req.params.code;
 
     if (code === validCode) {
