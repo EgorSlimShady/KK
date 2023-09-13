@@ -17,7 +17,7 @@
 
         getCodeButton.addEventListener('click', () => {
             // Выполнять запрос к серверу для получения уникального кода
-            fetch('https://egorslimshady.github.io/KK/getCode')
+            fetch('https://egorslimshady.github.io/KK/test_pay/getCode')
                 .then(response => response.text())
                 .then(code => {
                     codeInput.value = code;
@@ -30,11 +30,11 @@
         checkCodeButton.addEventListener('click', () => {
             const code = codeInput.value;
             // Выполнять запрос к серверу для проверки кода
-            fetch(`https://egorslimshady.github.io/KK/checkCode/${code}`)
+            fetch(`https://egorslimshady.github.io/KK/test_pay/checkCode/${code}`)
                 .then(response => response.text())
                 .then(result => {
                     if (result === 'Код действителен') {
-                        videoPlayer.src = 'https://egorslimshady.github.io/KK/videoStream'; // Воспроизвести видео-поток на клиенте
+                        videoPlayer.src = 'https://egorslimshady.github.io/KK/test_pay/videoStream'; // Воспроизвести видео-поток на клиенте
                     } else {
                         alert('Неверный код');
                     }
