@@ -59,7 +59,7 @@
             flex-direction: column;
             align-items: center;
             background-color: #333;
-            color: white;
+            color: goldenrod;
             padding: 40px;
             text-align: center;
             border-radius: 5px;
@@ -67,23 +67,42 @@
         .modal-btn {
             font-family: 'Great Vibes', cursive;
             margin-top: 20px;
-            background-color: goldenrod;
-            color: black;
+            background-color: #333;
+            color: goldenrod;
             padding: 10px 20px;
-            border: none;
+            border: solid;
+            border-color: goldenrod;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
         }
-        .modal-content input[type="date"] {
-            background-color: #333;
+
+        .modal-btn:hover {
+            font-family: 'Great Vibes', cursive;
+            margin-top: 20px;
+            background-color: goldenrod;
             color: white;
-            padding: 10px;
-            border: groove;
-            text-align: center;
+            padding: 10px 20px;
+            border: solid;
+            border-color: goldenrod;
             border-radius: 5px;
             font-size: 16px;
+            cursor: pointer;
+        }
+
+        .modal-content input[type="date"] {
+            background-color: #333;
+            color: goldenrod;
+            padding: 8px 12px 8px 12px;
+            border: solid;
+            border-color: goldenrod;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 21px;
             width: 225px;
+        }
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
         }
     </style>
 </head>
@@ -130,6 +149,32 @@
     </div>
 
     <script>
+
+        // Получение завтрашней даты
+        var begin_tomorrow = new Date();
+        var dd = String(begin_tomorrow.getDate() + 1).padStart(2, '0');
+        var mm = String(begin_tomorrow.getMonth() + 1).padStart(2, '0');
+        var yyyy = begin_tomorrow.getFullYear();
+
+        begin_tomorrow = yyyy + '-' + mm + '-' + dd;
+
+        // Установка завтрашней даты в поле ввода при загрузке страницы
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("datepicker").value = begin_tomorrow;
+        });
+
+        // Ограничение выбора даты на завтра и более поздние даты
+        document.getElementById("datepicker").addEventListener("focus", function() {
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            var dd = String(tomorrow.getDate()).padStart(2, '0');
+            var mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            var yyyy = tomorrow.getFullYear();
+
+            var minDate = yyyy + '-' + mm + '-' + dd;
+            this.setAttribute("min", minDate);
+        });
+
         // Функция для форматирования числа с ведущим нулем
         function formatNumber(number) {
             return number < 10 ? "0" + number : number;

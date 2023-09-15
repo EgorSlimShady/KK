@@ -1,128 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Мероприятие</title>
+  <!-- Подключение jQuery -->
+  <script src="C:/Users/egort/OneDrive/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB/site/KK/jquery-3.6.0.min.js"></script>
+
+  <!-- Подключение jQuery UI -->
+  <script src="C:/Users/egort/OneDrive/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB/site/KK/jquery-ui.min.js"></script>
+
+  <!-- Подключение стилей для jQuery UI -->
+  <link rel="stylesheet" href="C:/Users/egort/OneDrive/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB/site/KK/jquery-ui.css">
+
   <style>
-    body {
-      background-color: black;
-      color: gold;
-      text-align: center;
+    /* Стили для поля ввода */
+    /* .datepicker-input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    } */
+
+    /* Стили для календаря */
+    /* .ui-datepicker {
       font-family: Arial, sans-serif;
+      font-size: 14px;
+      background-color: #fff;
+      border: 1px solid #ccc;
     }
 
-    .container {
-      background-color: gold;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
+    .ui-datepicker-header {
+      background-color: #f0f0f0;
+      border-bottom: 1px solid #ccc;
     }
 
-    button {
-      background-color: black;
-      color: gold;
-      border: none;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
+    .ui-datepicker-title {
+      margin: 5px 0;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .ui-datepicker-prev, .ui-datepicker-next {
+      background-color: #f0f0f0;
+      color: #333;
+      font-weight: bold;
+      border: 1px solid #ccc;
+      padding: 3px;
       cursor: pointer;
     }
 
-    #modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
+    .ui-datepicker-calendar {
       width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      margin-top: 10px;
+      border-collapse: collapse;
     }
 
-    #modal-content {
-      background-color: black;
-      color: gold;
-      margin: 20% auto;
-      padding: 20px;
-      width: 50%;
+    .ui-datepicker-calendar th, .ui-datepicker-calendar td {
+      text-align: center;
+      padding: 5px;
+      border: 1px solid #ccc;
     }
 
-    .carousel-container {
-      margin-bottom: 40px;
+    .ui-datepicker-calendar .ui-state-default {
+      color: #333;
+      text-decoration: none;
     }
 
-    .timer-container {
-      background-color: gold;
-      font-size: 24px;
-      margin-bottom: 40px;
-      padding: 20px;
+    .ui-datepicker-calendar .ui-state-default:hover {
+      background-color: #f0f0f0;
     }
 
-    .countdown-text {
-      font-size: 36px;
-      margin-bottom: 10px;
+    .ui-datepicker-current-day {
+      background-color: #e0e0e0;
     }
 
-    .countdown {
-      display: flex;
-      justify-content: center;
-    }
-
-    .content {
-      color: black;
-      padding: 20px;
-    }
+    .ui-datepicker-unselectable .ui-state-default {
+      color: #ccc;
+    } */
   </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Когда планируется провести Ваше мероприятие?</h1>
-    <button onclick="openModal()">Выбрать дату</button>
-    <div id="modal">
-      <div id="modal-content">
-        <h2>Выберите дату мероприятия</h2>
-        <input type="date" id="event-date"/><br /><br />
-        <button onclick="closeModal()">Закрыть</button>
-        <button onclick="startOrganization()">Начать организацию</button>
-      </div>
-    </div>
-
-    <div class="carousel-container">
-      <!-- Фото-карусель с ближайшими мероприятиями -->
-    </div>
-
-    <div class="timer-container">
-      <h2>До Вашего мероприятия осталось:</h2>
-      <div class="countdown">
-        <div id="weeks" class="countdown-text"></div>
-        <div id="days" class="countdown-text"></div>
-        <div id="hours" class="countdown-text"></div>
-        <div id="minutes" class="countdown-text"></div>
-        <div id="seconds" class="countdown-text"></div>
-      </div>
-    </div>
-
-    <div class="content">
-      <!-- Контент страницы -->
-    </div>
-  </div>
 
   <script>
-    function openModal() {
-      document.getElementById('modal').style.display = 'block';
-    }
+    $(document).ready(function() {
+      // Установка завтрашней даты по умолчанию
+      var tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      
+      // Применение jQuery UI Datepicker к полю ввода
+      $(".datepicker-input").datepicker({
+        minDate: tomorrow, // Запрет выбора даты раньше, чем завтрашняя
+        dateFormat: "dd.mm.yy" // Формат даты "дд.мм.гггг"
+      });
 
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-
-    function startOrganization() {
-      var eventDate = document.getElementById('event-date').value;
-      // Действия при нажатии кнопки "Начать организацию" после выбора даты
-    }
-
-    // Код для отображения и обновления таймера обратного отсчета
+      // Установка завтрашней даты в поле ввода
+      $(".datepicker-input").datepicker("setDate", tomorrow);
+    });
   </script>
+</head>
+<body>
+  <input type="text" class="datepicker-input" placeholder="Выберите дату">
 </body>
 </html>
