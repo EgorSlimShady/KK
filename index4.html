@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Мероприятие</title>
+  <style>
+    body {
+      background-color: black;
+      color: gold;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background-color: gold;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    button {
+      background-color: black;
+      color: gold;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #modal-content {
+      background-color: black;
+      color: gold;
+      margin: 20% auto;
+      padding: 20px;
+      width: 50%;
+    }
+
+    .carousel-container {
+      margin-bottom: 40px;
+    }
+
+    .timer-container {
+      background-color: gold;
+      font-size: 24px;
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+
+    .countdown-text {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+    }
+
+    .content {
+      color: black;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Когда планируется провести Ваше мероприятие?</h1>
+    <button onclick="openModal()">Выбрать дату</button>
+    <div id="modal">
+      <div id="modal-content">
+        <h2>Выберите дату мероприятия</h2>
+        <input type="date" id="event-date"/><br /><br />
+        <button onclick="closeModal()">Закрыть</button>
+        <button onclick="startOrganization()">Начать организацию</button>
+      </div>
+    </div>
+
+    <div class="carousel-container">
+      <!-- Фото-карусель с ближайшими мероприятиями -->
+    </div>
+
+    <div class="timer-container">
+      <h2>До Вашего мероприятия осталось:</h2>
+      <div class="countdown">
+        <div id="weeks" class="countdown-text"></div>
+        <div id="days" class="countdown-text"></div>
+        <div id="hours" class="countdown-text"></div>
+        <div id="minutes" class="countdown-text"></div>
+        <div id="seconds" class="countdown-text"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- Контент страницы -->
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('modal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    function startOrganization() {
+      var eventDate = document.getElementById('event-date').value;
+      // Действия при нажатии кнопки "Начать организацию" после выбора даты
+    }
+
+    // Код для отображения и обновления таймера обратного отсчета
+  </script>
+</body>
+</html>

@@ -1,72 +1,193 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Мероприятие</title>
-  <style>
-    body {
-      background-color: black;
-      color: gold;
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .carousel-container {
-      margin-bottom: 40px;
-    }
-
-    .timer-container {
-      font-size: 24px;
-      margin-bottom: 40px;
-    }
-
-    .countdown-text {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .countdown {
-      display: flex;
-      justify-content: center;
-    }
-  </style>
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Great Vibes', cursive;
+        }
+        .counter-section {
+            background: linear-gradient(to right, #333, goldenrod);
+            color: white;
+            padding: 80px 0;
+        }
+        .counter-text {
+            text-align: center;
+        }
+        .counter-text span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .counter-text h3 {
+            font-size: 40px;
+            margin-top: 15px;
+        }
+        .cd-timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .cd-item {
+            text-align: center;
+            margin: 0 10px;
+        }
+        .cd-item span {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .cd-item p {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        .modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .modal-btn {
+            font-family: 'Great Vibes', cursive;
+            margin-top: 20px;
+            background-color: goldenrod;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .modal-content input[type="date"] {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: groove;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 225px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Когда планируется провести Ваше мероприятие?</h1>
-    <button onclick="startOrganization()">Приступить к организации</button>
+    <section class="hero-section set-bg" data-setbg="icon/hero.jpg" style="background-image: url(&quot;icon/hero.jpg&quot;);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="hero-text">
+                        <span>5 to 9 may 2019, mardavall hotel, New York</span>
+                        <h2>Change Your Mind<br> To Become Sucess</h2>
+                        <a href="#" class="primary-btn">Buy Ticket</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <img src="icon/front_face.png" alt="" style="width: 500px; height: 625px; vertical-align: middle; border-style: none; ">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="carousel-container">
-      <!-- Фото-карусель с ближайшими мероприятиями -->
+    <section class="counter-section bg-gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="counter-text">
+                        <span>Дата Вашего мероприятия</span>
+                        <h3>Считаем каждую секунду <br>до него</h3>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="cd-timer" id="countdown"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2>Выберите дату Вашего мероприятия:</h2>
+            <input type="date" id="datepicker">
+            <button class="modal-btn" onclick="startCountdown()">Приступить к организации</button>
+        </div>
     </div>
 
-    <div class="timer-container">
-      <h2>До Вашего мероприятия осталось:</h2>
-      <div class="countdown">
-        <div id="weeks" class="countdown-text"></div>
-        <div id="days" class="countdown-text"></div>
-        <div id="hours" class="countdown-text"></div>
-        <div id="minutes" class="countdown-text"></div>
-        <div id="seconds" class="countdown-text"></div>
-      </div>
-    </div>
+    <script>
+        // Функция для форматирования числа с ведущим нулем
+        function formatNumber(number) {
+            return number < 10 ? "0" + number : number;
+        }
 
-    <div class="content">
-      <!-- Контент страницы -->
-    </div>
-  </div>
+        // Функция для обновления таймера
+        function updateTimer(endDate) {
+            var now = new Date().getTime();
+            var distance = endDate - now;
 
-  <script>
-    function startOrganization() {
-      // Действия при нажатии кнопки "Приступить к организации"
-    }
+            // Вычисление оставшегося времени
+            var weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Код для отображения и обновления таймера обратного отсчета
-  </script>
+            // Обновление элементов таймера
+            document.getElementById("countdown").innerHTML = `
+                <div class="cd-item"><span>${formatNumber(weeks)}</span> <p>Недель</p></div>
+                <div class="cd-item"><span>${formatNumber(days)}</span> <p>Дней</p></div>
+                <div class="cd-item"><span>${formatNumber(hours)}</span> <p>Часов</p></div>
+                <div class="cd-item"><span>${formatNumber(minutes)}</span> <p>Минут</p></div>
+                <div class="cd-item"><span>${formatNumber(seconds)}</span> <p>Секунд</p></div>
+            `;
+
+            // Проверка, если время истекло
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "<div class='cd-item'><span>00</span> <p>Дней</p></div><div class='cd-item'><span>00</span> <p>Часов</p></div><div class='cd-item'><span>00</span> <p>Минут</p></div><div class='cd-item'><span>00</span> <p>Секунд</p></div>";
+            }
+        }
+
+        // Функция для запуска обратного отсчета
+        function startCountdown() {
+            var selectedDate = new Date(document.getElementById("datepicker").value).getTime();
+
+            // Обновление таймера каждую секунду
+            updateTimer(selectedDate);
+            var timer = setInterval(function () {
+                updateTimer(selectedDate);
+            }, 1000);
+
+            hideModal();
+        }
+
+        // Функция показа модального окна
+        function showModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        // Функция скрытия модального окна
+        function hideModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+        
+        // Показать модальное окно по загрузке страницы
+        window.onload = showModal;
+    </script>
 </body>
 </html>
